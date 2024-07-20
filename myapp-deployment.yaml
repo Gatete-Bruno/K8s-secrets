@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: myapp-container
-          image: myapp-image:latest
+          image: nginx:latest
           env:
             - name: REDIS_PASSWORD
               valueFrom:
