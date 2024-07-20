@@ -1,0 +1,18 @@
+architecture: replication
+extraDeploy:
+  - apiVersion: eso.kubernetes-client.io/v1alpha1
+    kind: PushSecret
+    metadata:
+      name: redis-pushsecret
+      namespace: redis
+    spec:
+      secretStoreRef:
+        name: vault-secretstore
+        kind: SecretStore
+      refreshInterval: 1h
+      data:
+        - secretKey: redis-password
+          remoteRef:
+            key: redis/secret
+            property: password
+          property: data.redis-password
