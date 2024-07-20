@@ -9,7 +9,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     repoURL: 'https://github.com/Gatete-Bruno/K8s-secrets.git'
-    path: 'manifests'  # Ensure this is the correct directory where your manifests are stored
+    path: '.'  # Use '.' if the manifests are in the root directory
     targetRevision: HEAD
   project: default
   syncPolicy:
