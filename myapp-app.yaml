@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: external-secret-app
+  namespace: argocd
+spec:
+  destination:
+    namespace: external-secrets
+    server: 'https://kubernetes.default.svc'
+  source:
+    repoURL: 'https://github.com/Gatete-Bruno/K8s-secrets.git'
+    path: '.'  # Update this to the correct path if your manifests are in a different directory
+    targetRevision: HEAD
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
